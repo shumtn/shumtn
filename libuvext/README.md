@@ -1,0 +1,2 @@
+这个是libuv的一个扩展，主要是为了方便使用libuv，目前只封装了tcp接口,后期在进行封装其它的接口，当然一样也可以对其它语言进行接口调用，为了测试，分别封装了D语言和CSharp接口。如果你有兴趣加入我们进行扩展，欢迎至信到djj@shumtn.com
+(This is an extension of libuv, mainly in order to facilitate the use of libuv only encapsulates tcp interface package other interfaces in the late undertaking, of course, the same can also interface calls in other languages, in order to test, encapsulates the D language and CSharpinterface. If you are interested in joining us expand, welcome to the letter to djj@shumtn.com)

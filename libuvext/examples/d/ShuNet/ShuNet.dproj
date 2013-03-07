@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C85788B-BDDF-48F6-BB7A-B5D068447F6A}</ProjectGuid>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <Compiler>DMD2</Compiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>..\..\build\output\</OutputPath>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>E:\DaiJunJie\shumtn\project\DLang\build\output\obj\NetWork</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>SharedLibrary</Target>
+    <OutputName>NetWork</OutputName>
+    <ExtraLinkerArguments>NetWork.def</ExtraLinkerArguments>
+    <Libs>
+      <Libs>
+        <Lib>..\..\lib\libuv-omf.lib</Lib>
+        <Lib>..\..\lib\libevent-omf.lib</Lib>
+      </Libs>
+    </Libs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj\Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>SharedLibrary</Target>
+    <OutputName>NetWork</OutputName>
+    <ExtraLinkerArguments>NetWork.def</ExtraLinkerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <UnittestMode>True</UnittestMode>
+    <ObjectsDirectory>obj\Unittest</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>SharedLibrary</Target>
+    <OutputName>NetWork</OutputName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="shu\net\netserver.d" />
+    <Compile Include="shu\net\libuv\imports.d" />
+    <Compile Include="dllmain.d" />
+    <Compile Include="shu\net\libevent\_d_util.d" />
+    <Compile Include="shu\net\libevent\_tailq.d" />
+    <Compile Include="shu\net\libevent\buffer.d" />
+    <Compile Include="shu\net\libevent\bufferevent.d" />
+    <Compile Include="shu\net\libevent\bufferevent_ssl.d" />
+    <Compile Include="shu\net\libevent\dns.d" />
+    <Compile Include="shu\net\libevent\dns_struct.d" />
+    <Compile Include="shu\net\libevent\event.d" />
+    <Compile Include="shu\net\libevent\event_struct.d" />
+    <Compile Include="shu\net\libevent\http.d" />
+    <Compile Include="shu\net\libevent\http_struct.d" />
+    <Compile Include="shu\net\libevent\keyvalq_struct.d" />
+    <Compile Include="shu\net\libevent\listener.d" />
+    <Compile Include="shu\net\libevent\rpc.d" />
+    <Compile Include="shu\net\libevent\rpc_struct.d" />
+    <Compile Include="shu\net\libevent\tag.d" />
+    <Compile Include="shu\net\libevent\thread.d" />
+    <Compile Include="shu\net\libevent\util.d" />
+    <Compile Include="shu\net\interfaces\iservice.d" />
+    <Compile Include="shu\net\netstate.d" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="shu\net\libuv\" />
+    <Folder Include="shu\net\libuv\Internal\" />
+  </ItemGroup>
+</Project>
