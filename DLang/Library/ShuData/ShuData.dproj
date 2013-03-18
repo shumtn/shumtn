@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6CF3B5EA-11FA-4915-A801-28DBA8974B03}</ProjectGuid>
+    <PreferOneStepBuild>False</PreferOneStepBuild>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <Compiler>DMD2</Compiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>..\..\build\output\</OutputPath>
+    <Target>StaticLibrary</Target>
+    <OutputName>ShuData</OutputName>
+    <ObjectsDirectory>..\..\build\output\obj\ShuData\</ObjectsDirectory>
+    <Externalconsole>True</Externalconsole>
+    <UnittestMode>False</UnittestMode>
+    <DebugLevel>0</DebugLevel>
+    <ExtraCompilerArguments>-version=MySQL_51</ExtraCompilerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\build\output\</OutputPath>
+    <Target>StaticLibrary</Target>
+    <OutputName>ShuData</OutputName>
+    <ObjectsDirectory>..\..\build\output\obj\ShuData</ObjectsDirectory>
+    <Externalconsole>True</Externalconsole>
+    <UnittestMode>False</UnittestMode>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <Target>StaticLibrary</Target>
+    <OutputName>libShuData</OutputName>
+    <ExtraCompilerArguments>-unittest </ExtraCompilerArguments>
+    <ObjectsDirectory>obj\Unittest</ObjectsDirectory>
+    <Externalconsole>True</Externalconsole>
+    <UnittestMode>False</UnittestMode>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="shu\data\database.d">
+      <LastGenOutput>..\..\build\output\obj\ShuData\shu.data.database.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\data\pgsql.d">
+      <LastGenOutput>..\..\build\output\obj\ShuData\shu.data.pgsql.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\data\mysql.d">
+      <LastGenOutput>..\..\build\output\obj\ShuData\shu.data.mysql.obj</LastGenOutput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="shu\" />
+    <Folder Include="shu\data\" />
+  </ItemGroup>
+</Project>
