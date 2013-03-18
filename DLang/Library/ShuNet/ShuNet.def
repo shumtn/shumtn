@@ -1,0 +1,16 @@
+LIBRARY		"ShuNet.dll"
+DESCRIPTION	"ShuNet Written in D"
+
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+
+EXPORTS	
+    net_server_start		@100
+	net_server_close_client	@110
+	net_server_send			@120
+
+	net_client_start	@200
+	net_client_stop		@210
+	net_client_send		@220
