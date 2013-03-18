@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2BEA953-0428-47C4-84CD-77978FA96A7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shu.Util</RootNamespace>
+    <AssemblyName>Shu.Util</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>..\Dlls\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="lua51">
+      <HintPath>..\dlls\lua51.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaInterface">
+      <HintPath>..\dlls\LuaInterface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInfo.cs" />
+    <Compile Include="Collections\Delegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\SafeDictionary.cs" />
+    <Compile Include="Collections\SafeHashSet.cs" />
+    <Compile Include="Consoles\ConsoleCommand.cs" />
+    <Compile Include="Converts\Conversion.cs" />
+    <Compile Include="Filter\Filter.cs" />
+    <Compile Include="Hardware\Hardware.cs" />
+    <Compile Include="Image\Breviary.cs" />
+    <Compile Include="Image\WaterMark.cs" />
+    <Compile Include="Insensitive.cs" />
+    <Compile Include="IO\Html.cs" />
+    <Compile Include="IO\IIS.cs" />
+    <Compile Include="IO\Open.cs" />
+    <Compile Include="IO\Path.cs" />
+    <Compile Include="IO\Xml.cs" />
+    <Compile Include="LockCheck.cs" />
+    <Compile Include="LockInOut.cs" />
+    <Compile Include="MemoryPool.cs" />
+    <Compile Include="Message\Message.cs" />
+    <Compile Include="Message\MessageFile.cs" />
+    <Compile Include="MultiTextWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\CsCompiler.cs" />
+    <Compile Include="Scripts\ScriptCompiler.cs" />
+    <Compile Include="Scripts\TestCs.cs" />
+    <Compile Include="Scripts\VbCompiler.cs" />
+    <Compile Include="Security\Aes.cs" />
+    <Compile Include="Security\Sha.cs" />
+    <Compile Include="Security\ValidateCode.cs" />
+    <Compile Include="Security\XXTea.cs" />
+    <Compile Include="String\GetString.cs" />
+    <Compile Include="Struct.cs" />
+    <Compile Include="Timer\TimeSlice.cs" />
+    <Compile Include="TryParse.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Consoles\ConsoleWindow.cs" />
+    <Compile Include="Server\Core.cs" />
+    <Compile Include="Server\Item.cs" />
+    <Compile Include="Server\IEntity.cs" />
+    <Compile Include="Server\Serial.cs" />
+    <Compile Include="Server\Interfaces.cs" />
+    <Compile Include="Server\Attributes.cs" />
+    <Compile Include="Assembly\Runtime.cs" />
+    <Compile Include="Trace.cs" />
+    <Compile Include="Scripts\LuaFramework.cs" />
+    <Compile Include="Scripts\LuaFunctionApi.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
+</Project>
