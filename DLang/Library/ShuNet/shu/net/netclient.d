@@ -11,7 +11,7 @@ extern (C)
 
 	export void net_client_stop()
 	{
-		net_client_close();
+		//net_client_close();
 	}
 
 	export void net_client_send(void* bev, void* data, uint length)

@@ -6,29 +6,39 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CEA244CF-59C6-4D2E-A5F7-EA65105CDD25}</ProjectGuid>
-    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <UseDefaultCompiler>false</UseDefaultCompiler>
     <IncrementalLinking>True</IncrementalLinking>
     <PreferOneStepBuild>false</PreferOneStepBuild>
     <Compiler>DMD2</Compiler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
-    <OutputPath>../../lib/</OutputPath>
+    <OutputPath>..\..\lib</OutputPath>
     <UnittestMode>False</UnittestMode>
     <ObjectsDirectory>..\..\build\output\obj\ShuNet\</ObjectsDirectory>
     <DebugLevel>0</DebugLevel>
     <Externalconsole>True</Externalconsole>
     <Target>StaticLibrary</Target>
     <OutputName>ShuNet</OutputName>
+    <Libs>
+      <Libs>
+        <Lib>../../lib/libuv-omf.lib</Lib>
+      </Libs>
+    </Libs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>../../lib</OutputPath>
+    <OutputPath>..\..\lib</OutputPath>
     <UnittestMode>False</UnittestMode>
-    <ObjectsDirectory>..\..\build\output\obj\ShuNet\</ObjectsDirectory>
+    <ObjectsDirectory>..\..\build\output\obj\ShuNet</ObjectsDirectory>
     <DebugLevel>0</DebugLevel>
     <Externalconsole>True</Externalconsole>
     <Target>StaticLibrary</Target>
     <OutputName>ShuNet</OutputName>
+    <Libs>
+      <Libs>
+        <Lib>../../lib/libuv-omf.lib</Lib>
+      </Libs>
+    </Libs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -41,17 +51,39 @@
     <OutputName>libShuNet</OutputName>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="shu\net\netclient.d" />
-    <Compile Include="shu\net\netserver.d" />
-    <Compile Include="shu\net\libuv\imports.d" />
-    <Compile Include="shu\net\zeromq\util.d" />
-    <Compile Include="shu\net\zeromq\zmq.d" />
-    <Compile Include="shu\net\packet\bpackethandlers.d" />
-    <Compile Include="shu\net\packet\packethandler.d" />
-    <Compile Include="shu\net\channel.d" />
-    <Compile Include="shu\net\interfaces\ilistener.d" />
-    <Compile Include="shu\net\interfaces\iservice.d" />
-    <Compile Include="shu\net\bservice.d" />
+    <Compile Include="shu\net\netclient.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.netclient.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\netserver.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.netserver.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\libuv\imports.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.libuv.imports.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\zeromq\util.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.zeromq.util.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\zeromq\zmq.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.zeromq.zmq.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\packet\bpackethandlers.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.packet.bpackethandlers.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\packet\packethandler.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.packet.packethandler.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\channel.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.channel.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\interfaces\ilistener.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.interfaces.ilistener.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\interfaces\iservice.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.interfaces.iservice.obj</LastGenOutput>
+    </Compile>
+    <Compile Include="shu\net\bservice.d">
+      <LastGenOutput>..\..\build\output\obj\ShuNet\shu.net.bservice.obj</LastGenOutput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="shu\" />

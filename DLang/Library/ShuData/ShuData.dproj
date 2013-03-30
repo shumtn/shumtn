@@ -16,14 +16,20 @@
     <OutputPath>..\..\lib\</OutputPath>
     <Target>StaticLibrary</Target>
     <OutputName>ShuData</OutputName>
-    <ObjectsDirectory>..\..\build\output\obj\ShuData\</ObjectsDirectory>
+    <ObjectsDirectory>..\..\build\output\obj\ShuData</ObjectsDirectory>
     <Externalconsole>True</Externalconsole>
     <UnittestMode>False</UnittestMode>
     <DebugLevel>0</DebugLevel>
     <ExtraCompilerArguments>-version=MySQL_51</ExtraCompilerArguments>
+    <Libs>
+      <Libs>
+        <Lib>../../lib/libpq.lib</Lib>
+        <Lib>../../lib/libmysql.lib</Lib>
+      </Libs>
+    </Libs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>../../lib/</OutputPath>
+    <OutputPath>..\..\lib\</OutputPath>
     <Target>StaticLibrary</Target>
     <OutputName>ShuData</OutputName>
     <ObjectsDirectory>..\..\build\output\obj\ShuData</ObjectsDirectory>
@@ -31,6 +37,12 @@
     <UnittestMode>False</UnittestMode>
     <DebugLevel>0</DebugLevel>
     <ExtraCompilerArguments>-version=MySQL_51</ExtraCompilerArguments>
+    <Libs>
+      <Libs>
+        <Lib>../../lib/libpq.lib</Lib>
+        <Lib>../../lib/libmysql.lib</Lib>
+      </Libs>
+    </Libs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
