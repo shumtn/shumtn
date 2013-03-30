@@ -1,7 +1,7 @@
 module packets.lgpacket;
 
 import std.stdio;
-import netmodel, shu.net.channel, shu.net.packet.bpackethandlers;
+import shu.net.channel, shu.net.packet.bpackethandlers;
 import netmodule.loginmsg, database.dbmanager;
 
 class LGPacket : BPacketHandlers

@@ -72,6 +72,7 @@ public:
 		if(pLength != m_Size)
 		{
 			debug writefln("pLength %d != m_Size %d", pLength, m_Size);
+			return;
 		}
 			
 		// 获取编号

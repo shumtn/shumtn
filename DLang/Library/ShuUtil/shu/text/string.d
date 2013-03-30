@@ -1,6 +1,6 @@
 module shu.text.string;
 
-import std.string,std.ascii, std.array;  
+import std.stdio, std.string, std.ascii, std.array;  
 import std.utf;  
 import std.c.windows.windows;
 
@@ -52,17 +52,24 @@ private string wcs2mbz(wstring ws)
 	return cast(string)rz.idup;
 }
 
-public string ToAnsi(string a)
+public:
+
+string ToAnsi(string a)
 {
 	return wcs2mbz(a2w(a));
 }
 
-string hexToString(in ubyte[] bytes)
+string PtrToHex(in void* ptr, int len)
+{
+	return BytesToHex(cast(ubyte[])ptr[0..len]);
+}
+
+string BytesToHex(in ubyte[] bytes)
 {
 	auto result = new char[bytes.length * 2];
 	size_t i;
 	string temp;
-	foreach (u; bytes)
+	foreach(u; bytes)
 	{
 		result[i] = std.ascii.hexDigits[u >> 4];
 		result[i + 1] = std.ascii.hexDigits[u & 0x0F];	
