@@ -1,43 +1,60 @@
 module netserver;
 
 import std.stdio;
-import shu.net.libuv.imports;
+import shu.net.interfaces.iservice, shu.net.libuv.imports, shu.net.channel;
 
-extern (C)
+class NetServer
 {
-	/**
-	* 新服务器
-	* parame:
-	*	ip = 地址
-	* 	port = 4502 服务器端口 
-	* 	backlog = 200 同时监听数
-	*   bufferSize = 4096 缓冲大小
-	* */
-	export void net_server_start(char* ip, ushort port, ushort backlog, int maxConnects, int bufferSize=4096, void* connect_cb=null, void* write_cb=null, void* read_cb=null, void* close_cb=null, void* error_cb=null)
+
+private:
+	string m_Ip = null;
+	ushort m_Port = 0;
+	ushort m_Backlog = 0;
+	ushort m_BufferSize = 0;
+	ushort m_MaxConnects = 0;
+	static IService* m_IService = null;
+
+public:
+	this(string ip, ushort port, ushort backlog=200, ushort maxConnects=5000, ushort bufferSize=4096, IService* iservice=null)
 	{
-		net_server_create(ip, cast(int)port, cast(int)backlog, maxConnects, bufferSize, connect_cb, write_cb, read_cb, close_cb, error_cb);
+		m_Ip			= ip;
+		m_Port 			= port;
+		m_Backlog 		= backlog;
+		m_MaxConnects	= maxConnects;
+		m_BufferSize	= bufferSize;	
+		m_IService		= iservice;
 	}
 
-	/**
-	* 关闭监听
-	* parame:
-	* 	server_ptr = 监听指针
-	* */
-	export void net_server_close_client(void* server_ptr)
+	void open()
 	{
-		net_server_close_client(server_ptr);
+		net_server_create(cast(char*)m_Ip, m_Port, m_Backlog, m_MaxConnects, m_BufferSize, &on_open, &on_write, &on_read, &on_close, &on_error);
 	}
 
-	/**
-	* 服务端发送消息
-	* parame:
-	* 	bev		= 对象
-	*	data	= 数据
-	*	length	= 长度
-	* */
-	export void net_server_send(void* bev, void* data, int length)
+	void close()
 	{
-		net_server_write(bev, cast(char*)data, length);
+
+	}
+
+private:
+extern(C):
+	static void on_open(channel* c)
+	{
+		if(m_IService !is null) m_IService.OnOpen(c);
+	}
+	static void on_write(channel* c)
+	{
+		if(m_IService !is null) m_IService.OnWrite(c);
+	}
+	static void on_read(channel* c)
+	{
+		if(m_IService !is null) m_IService.OnRead(c);
+	}
+	static void on_close(channel* c)
+	{
+		if(m_IService !is null) m_IService.OnClose(c);
+	}
+	static void on_error(channel* c)
+	{
+		if(m_IService !is null) m_IService.OnError(c);
 	}
 }
-
