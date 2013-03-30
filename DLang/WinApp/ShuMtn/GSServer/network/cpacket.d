@@ -1,8 +1,8 @@
-module packets.cpacket;
+module network.cpacket;
 
 import std.stdio;
 import shu.net.channel, shu.net.packet.bpackethandlers;
-import netmodule.loginmsg;
+import netpacket.loginmsg;
 
 class CPacket : BPacketHandlers
 {

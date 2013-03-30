@@ -2,8 +2,7 @@ module network.cservice;
 
 import std.stdio, std.conv;
 import shu.net.bservice, shu.net.channel, shu.net.packet.packethandler, shu.text.string;
-import netmodule.loginmsg;
-import packets.cpacket;
+import network.cpacket, netpacket.loginmsg;
 
 class CService : BService
 {
