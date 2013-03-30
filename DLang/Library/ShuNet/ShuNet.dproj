@@ -8,27 +8,27 @@
     <ProjectGuid>{CEA244CF-59C6-4D2E-A5F7-EA65105CDD25}</ProjectGuid>
     <UseDefaultCompiler>True</UseDefaultCompiler>
     <IncrementalLinking>True</IncrementalLinking>
-    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <PreferOneStepBuild>false</PreferOneStepBuild>
     <Compiler>DMD2</Compiler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
-    <OutputPath>..\..\build\output</OutputPath>
+    <OutputPath>../../lib/</OutputPath>
     <UnittestMode>False</UnittestMode>
-    <ObjectsDirectory>E:\Deve\MyProject\github.com\shumtn\DLang\build\output\obj\Debug</ObjectsDirectory>
+    <ObjectsDirectory>..\..\build\output\obj\ShuNet\</ObjectsDirectory>
     <DebugLevel>0</DebugLevel>
     <Externalconsole>True</Externalconsole>
     <Target>StaticLibrary</Target>
     <OutputName>ShuNet</OutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>../../lib</OutputPath>
     <UnittestMode>False</UnittestMode>
-    <ObjectsDirectory>obj\Release</ObjectsDirectory>
+    <ObjectsDirectory>..\..\build\output\obj\ShuNet\</ObjectsDirectory>
     <DebugLevel>0</DebugLevel>
     <Externalconsole>True</Externalconsole>
     <Target>StaticLibrary</Target>
-    <OutputName>libShuNet</OutputName>
+    <OutputName>ShuNet</OutputName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>

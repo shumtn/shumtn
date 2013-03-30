@@ -13,7 +13,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
-    <OutputPath>..\..\build\output\</OutputPath>
+    <OutputPath>..\..\lib\</OutputPath>
     <Target>StaticLibrary</Target>
     <OutputName>ShuData</OutputName>
     <ObjectsDirectory>..\..\build\output\obj\ShuData\</ObjectsDirectory>
@@ -23,13 +23,14 @@
     <ExtraCompilerArguments>-version=MySQL_51</ExtraCompilerArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\build\output\</OutputPath>
+    <OutputPath>../../lib/</OutputPath>
     <Target>StaticLibrary</Target>
     <OutputName>ShuData</OutputName>
     <ObjectsDirectory>..\..\build\output\obj\ShuData</ObjectsDirectory>
     <Externalconsole>True</Externalconsole>
     <UnittestMode>False</UnittestMode>
     <DebugLevel>0</DebugLevel>
+    <ExtraCompilerArguments>-version=MySQL_51</ExtraCompilerArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
