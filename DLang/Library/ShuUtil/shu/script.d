@@ -10,65 +10,74 @@ import std.conv : toStringz;
  * 3.在lua脚本中可以使用C++程序中的函数
  * 4.在C++程序中可以使用lua脚本中的函数
  * */
-class JLua
+class Script
 {
-	private:
-		LuaState m_lua = null;
+
+private:
+	static Script m_instance = null;
+	LuaState m_lua = null;
 	
-	public:
-		
+public:
+	static Script Instance()
+	{
+		if(m_instance is null) m_instance = new Script();
+
+		return m_instance;
+	}
+
 	this()
 	{
-		OpenLua();
+		open();
 	}
 	
 	~this()
 	{
-		CloseLua();
+		close();
 	}
 	
 	/** 打开脚本 */
-	void OpenLua()
+	void open()
 	{
-		m_lua = new LuaState();
-	    m_lua.openLibs();
+		if(m_lua is null) m_lua = new LuaState();
+		if(m_lua !is null) m_lua.openLibs();
 	}
 	
 	/** 关闭脚本 */
-	void CloseLua()
+	void close()
 	{
-		//lua_close(cast(lua_State*)&m_lua);
-		m_lua = null;
+		if(m_lua !is null)
+		{
+			lua_close(cast(lua_State*)&m_lua);
+			m_lua = null;
+		}
 	}
 	
 	/** 重置脚本 */
 	void reset()
 	{
-		CloseLua();
-		OpenLua();
+		close();
+		open();
 	}
 	
 	LuaFunction loadString(string code)
 	{
-		return m_lua.loadString( cast(char[])code );
+		return m_lua.loadString(cast(char[])code);
+	}
+
+	LuaObject[] doString(string code="print('hello, world! doString')")
+	{
+		return m_lua.doString(cast(char[])code);
 	}
 	
 	LuaFunction loadFile(string path)
 	{
-		return m_lua.loadFile( cast(char[])path );
+		return m_lua.loadFile(cast(char[])path);
 	}
 	
-	LuaObject[] doFile( string path )
+	LuaObject[] doFile(string path)
 	{
-		return m_lua.doFile( cast(char[])path );
+		return m_lua.doFile(cast(char[])path);
 	}
-	
-	LuaObject[] doString( string code )
-	{
-		return m_lua.doString( cast(char[])code );
-	}
-	
-	
 	
 	// 注册脚本函数 ================
 	/** 注册函数到lua脚本 */
@@ -76,21 +85,22 @@ class JLua
 	{
 		return m_lua.registerType!T;
 	}	
+
 	/** 注册函数到lua脚本 */
-	void RegisterFunction(T, U)(T key, U value)
+	void RegFunction(T, U)(T key, U value)
 	{
-		//m_lua.set(key, value);
-		lua_register(cast(lua_State*)m_lua, toStringz(key), cast(lua_CFunction)value );
+		m_lua.set(key, value);
+		//lua_register(cast(lua_State*)m_lua, toStringz(key), cast(lua_CFunction)value ); // 这个不能不能这么写 
 	}
 	
 	// 获取脚本函数 ================
 	/** 使用lua脚本中的函数 */
-	LuaFunction CallFunction(U...)(U args)
+	LuaFunction GetFunction(U...)(U args)
 	{
 		return m_lua.get!LuaFunction( args );
 	}
-	
-	
+
+	/** 获取状态 */
 	LuaState GetState()
 	{
 		return m_lua;

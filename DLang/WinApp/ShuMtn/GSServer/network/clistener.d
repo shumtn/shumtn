@@ -24,8 +24,8 @@ public:
 		// 设置语言
 		setLocale();
 		
-		//m_Thread = new Thread(&runServer, 3);
-		runServer();
+		m_Thread = new Thread(&runServer, 3);
+		//runServer();
 	}
 	
 	void start()
