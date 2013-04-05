@@ -7,24 +7,21 @@ class CListener
 {
 
 private:
-	IService m_Service = null;
-	NetServer m_Server = null;
+	static IService m_Service = null;
+	static NetServer m_Server = null;
 	Thread m_Thread = null;
 	
 	void runServer()
 	{
 		m_Service = new CService();
 		m_Server = new NetServer("0.0.0.0", 6000, 200, 5000, 4096, &m_Service);
-		if(m_Server !is null) m_Server.open();
+		m_Server.open();
 	}
 
 public:
 	this()
-	{
-		// 设置语言
-		setLocale();
-		
-		m_Thread = new Thread(&runServer, 3);
+	{		
+		m_Thread = new Thread(&runServer);
 		//runServer();
 	}
 	
@@ -33,9 +30,19 @@ public:
 		if(m_Thread !is null) m_Thread.start();
 		writefln("Start GSServer 0.0.0.0");
 	}
+
+	uint send(void* handle, void* data, uint length)
+	{
+		m_Server.send(handle, data, length);
+		
+		return length;
+	}
 	
 	void stop()
 	{
+		//if(m_Thread !is null) m_Thread = null;
+
+		writefln("Stop GSServer");
 		if(m_Server !is null)
 		{
 			m_Server.close();

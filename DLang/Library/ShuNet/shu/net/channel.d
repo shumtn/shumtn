@@ -19,9 +19,12 @@ struct channel
 	char*		data;			// 数据
 	void*		handle;			// 缓冲指针
 
-	uint send(void* data, uint length)
+	uint send(void* data, uint length, bool bserver)
 	{
-		net_server_write(handle, cast(char*)data, length);
+		if(bserver)
+			net_server_write(handle, cast(char*)data, length);
+		else
+			net_client_write(handle, cast(char*)data, length);
 		
 		return length;
 	}

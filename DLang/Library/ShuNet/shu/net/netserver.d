@@ -27,12 +27,19 @@ public:
 
 	void open()
 	{
-		net_server_create(cast(char*)m_Ip, m_Port, m_Backlog, m_MaxConnects, m_BufferSize, &on_open, &on_write, &on_read, &on_close, &on_error);
+		net_server_open(cast(char*)m_Ip, m_Port, m_Backlog, m_MaxConnects, m_BufferSize, &on_open, &on_write, &on_read, &on_close, &on_error);
 	}
 
 	void close()
 	{
+		net_server_close();
+	}
 
+	uint send(void* handle, void* data, uint length)
+	{
+		//net_server_write(handle, cast(char*)data, length);
+
+		return length;
 	}
 
 private:

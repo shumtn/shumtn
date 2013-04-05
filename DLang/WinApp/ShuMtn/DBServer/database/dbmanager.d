@@ -6,11 +6,18 @@ import shu.data.database, shu.data.mysql, shu.data.pgsql;
 class DBManager
 {
 private:
-	static DBManager m_manager		= null;
+	static DBManager m_instance = null;
 	static MySql m_db = null;
 	//static PgSql m_db = null;
 
 public:
+	static DBManager GetApp()
+	{
+		if(m_instance is null) m_instance = new DBManager;
+		
+		return m_instance;
+	}
+
 	this()
 	{
 		try
@@ -25,13 +32,6 @@ public:
 			writefln(e.msg);
 			delete m_db;
 		}
-	}
-
-	static DBManager GetApp()
-	{
-		if(m_manager is null) m_manager = new DBManager;
-
-		return m_manager;
 	}
 
 	void MySqlStart()
@@ -57,6 +57,9 @@ public:
 	void close()
 	{
 		if(m_db !is null)
+		{
+			delete m_db;
 			m_db = null;
+		}
 	}
 }
