@@ -1,6 +1,6 @@
 module mainserver;
 
-import std.stdio;
+import std.stdio,std.digest.crc;
 import command.CmdManager, scripts.ScriptManager, network.NetManager;
 
 class MainServer
